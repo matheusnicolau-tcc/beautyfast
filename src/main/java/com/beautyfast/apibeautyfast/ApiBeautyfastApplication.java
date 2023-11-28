@@ -1,0 +1,13 @@
+package com.beautyfast.apibeautyfast;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ApiBeautyfastApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ApiBeautyfastApplication.class, args);
+	}
+
+}
