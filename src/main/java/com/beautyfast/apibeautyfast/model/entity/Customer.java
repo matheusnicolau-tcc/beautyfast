@@ -1,21 +1,22 @@
-package com.beautyfast.model.entity;
+package com.beautyfast.apibeautyfast.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
-
-import java.util.UUID;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "tb_customer")
 public class Customer extends Person{
 
     @Id
-    @Column(nullable = false )
-    private UUID customerId;
+    @Column(name = "customer_id",nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long customerId;
+
+    @Column(nullable = false)
+    private String address;
 
 
 }
