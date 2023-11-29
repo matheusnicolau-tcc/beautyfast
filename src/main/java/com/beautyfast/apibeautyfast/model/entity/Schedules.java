@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -18,15 +19,15 @@ public class Schedules {
     private Long scheduleId;
 
     @Column(name = "schedule_date", nullable = false)
-    private LocalDate scheduleDate;
+    private LocalDateTime scheduleDate;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private Long userId;
+    @JoinColumn(name = "user_id_fk", nullable = false)
+    private User userId;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    private  Long customerId;
+    @JoinColumn(name = "customer_id_fk", nullable = false)
+    private  Customer customerId;
 }
 
 
