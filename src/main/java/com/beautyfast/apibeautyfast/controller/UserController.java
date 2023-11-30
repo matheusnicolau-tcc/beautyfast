@@ -3,7 +3,6 @@ package com.beautyfast.apibeautyfast.controller;
 import com.beautyfast.apibeautyfast.dto.UserDTO;
 import com.beautyfast.apibeautyfast.model.entity.User;
 import com.beautyfast.apibeautyfast.model.service.UserService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,25 +26,22 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getOnUser(@PathVariable Long id) {
-
-        return new ResponseEntity<UserDTO>(HttpStatus.OK);
+        return new ResponseEntity<UserDTO>(userService.searchById(id), HttpStatus.OK);
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<UserDTO>> getOnUser() {
-
-        return new ResponseEntity<List<UserDTO>>(HttpStatus.OK);
+    public ResponseEntity<List<User>> getOnUser() {
+        List<User> usersList = userService.findAll();
+        return new ResponseEntity<List<User>>(usersList, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id){
-
-        return new ResponseEntity<UserDTO>(HttpStatus.OK);
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO){
+        return new ResponseEntity<>(userService.updateUser(id, userDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<UserDTO> deleteUser(@PathVariable Long id){
-
-        return new ResponseEntity<UserDTO>(HttpStatus.CREATED);
+    public ResponseEntity<String> deleteUser(@PathVariable Long id){
+        return new ResponseEntity<>(userService.deleteUser(id), HttpStatus.OK);
     }
 }
