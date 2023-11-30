@@ -1,7 +1,10 @@
 package com.beautyfast.apibeautyfast.controller;
 
+
 import com.beautyfast.apibeautyfast.dto.CustomerDTO;
-import jakarta.validation.Valid;
+import com.beautyfast.apibeautyfast.model.entity.Customer;
+import com.beautyfast.apibeautyfast.model.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,33 +15,34 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    @PostMapping
-    public ResponseEntity<CustomerDTO> createUser(@Valid @RequestBody CustomerDTO userDTO) {
+    @Autowired
+    CustomerService customerService;
 
-        return new ResponseEntity<CustomerDTO>(HttpStatus.CREATED);
+
+    @PostMapping
+    public ResponseEntity<Customer> createUser(@RequestBody CustomerDTO customerDTO) {
+        Customer customerReturn = customerService.createNewCustomer(customerDTO);
+        return new ResponseEntity<>(customerReturn, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDTO> getOnUser(@PathVariable Long id) {
-
-        return new ResponseEntity<CustomerDTO>(HttpStatus.OK);
+        return new ResponseEntity<>(customerService.searchById(id), HttpStatus.OK);
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<CustomerDTO>> getOnUser() {
-
-        return new ResponseEntity<List<CustomerDTO>>(HttpStatus.OK);
+    public ResponseEntity<List<Customer>> getOnUser() {
+        List<Customer> usersList = customerService.findAll();
+        return new ResponseEntity<List<Customer>>(usersList, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CustomerDTO> updateUser(@PathVariable Long id){
-
-        return new ResponseEntity<CustomerDTO>(HttpStatus.OK);
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody CustomerDTO userDTO){
+        return new ResponseEntity<>(customerService.updateCustomer(id, userDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CustomerDTO> deleteUser(@PathVariable Long id){
-
-        return new ResponseEntity<CustomerDTO>(HttpStatus.CREATED);
+    public ResponseEntity<String> deleteUser(@PathVariable Long id){
+        return new ResponseEntity<>(customerService.deleteCustomer(id), HttpStatus.OK);
     }
 }
