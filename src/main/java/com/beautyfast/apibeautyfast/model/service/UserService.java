@@ -24,7 +24,7 @@ public class UserService {
     public void validateIfCpfExists(String userCpf) {
         Optional<User> userOptional = userRepository.findByCpf(userCpf);
         if (userOptional.isPresent()) {
-            throw new CpfAlreadyExistsException("Teste !!");
+            throw new CpfAlreadyExistsException("Este CPF já está cadastrado como Usuário!");
         }
     }
 
@@ -46,7 +46,7 @@ public class UserService {
     public List<User> findAll() {
      List<User> usersList = userRepository.findAll();
         if (usersList.isEmpty()) {
-            throw new LIstNotFindException("Lista não encontrada");
+            throw new LIstNotFindException("Lista de Usuários não encontrada");
         }
         return usersList;
     }
