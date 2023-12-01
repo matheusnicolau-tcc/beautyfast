@@ -2,6 +2,7 @@ package com.beautyfast.apibeautyfast.exceptionhandler;
 
 import com.beautyfast.apibeautyfast.model.exception.CpfAlreadyExistsException;
 import com.beautyfast.apibeautyfast.model.exception.LIstNotFindException;
+import com.beautyfast.apibeautyfast.model.exception.SchedulesNotFindException;
 import com.beautyfast.apibeautyfast.model.exception.UserNotFindException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -47,5 +48,14 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
     }
 
-
+    @ExceptionHandler(SchedulesNotFindException.class)
+    public ResponseEntity<DefaultError> ListNotFind(SchedulesNotFindException e, HttpServletRequest request) {
+        var err = new DefaultError();
+        err.setTimestamp(Instant.now());
+        err.setStatus(HttpStatus.NOT_FOUND.value());
+        err.setType("SchedulesNotFindException");
+        err.setMessage(e.getMessage());
+        err.setPath(request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+    }
 }

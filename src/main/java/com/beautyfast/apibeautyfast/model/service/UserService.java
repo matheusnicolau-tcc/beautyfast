@@ -56,7 +56,7 @@ public class UserService {
        if (userToUpdate.isEmpty()) {
            throw new UserNotFindException("Usuário não encontrado !");
        }
-       userToUpdate.get().setUserId(userId);
+
        userToUpdate.get().setName(userDTO.getName());
        userToUpdate.get().setCpf(userDTO.getCpf());
        userToUpdate.get().setSalary(userDTO.getSalary());

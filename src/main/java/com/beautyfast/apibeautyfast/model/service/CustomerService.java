@@ -57,7 +57,7 @@ public class CustomerService {
         if (customerToUpdate.isEmpty()) {
             throw new UserNotFindException("Cliente não encontrado !");
         }
-        customerToUpdate.get().setCustomerId(customerId);
+
         customerToUpdate.get().setName(customerDTO.getName());
         customerToUpdate.get().setCpf(customerDTO.getCpf());
         customerToUpdate.get().setAddress(customerDTO.getAddress());
