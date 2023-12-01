@@ -1,5 +1,8 @@
 package com.beautyfast.apibeautyfast.dto;
 
+import com.beautyfast.apibeautyfast.model.entity.Customer;
+import com.beautyfast.apibeautyfast.model.entity.User;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +13,8 @@ import java.time.LocalDateTime;
 public class ScheduleDTO {
 
     private LocalDateTime scheduleDate;
-    private Long userId;
-    private Long customerId;
+    @NotNull
+    private User user;
+    @NotNull
+    private Customer customer;
 }
