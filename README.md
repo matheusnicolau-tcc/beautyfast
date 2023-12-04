@@ -17,7 +17,7 @@ Estas são as dependências utilizadas até o momento no projeto, para o arquivo
 `lombok` - `spring-boot-starter-test` - `modelmapper`.
 
 ### Arquivo Jar
-O arquivo do build de artefato do projeto se encontra -> [Aqui](/home/matheusnicolau/Documentos/Matheus/TCC/beautyfast/out/artifacts/api_beautyfast_jar/api-beautyfast.jar)
+O arquivo do build de artefato do projeto se encontra -> [Aqui](out/artifacts/api_beautyfast_jar/api-beautyfast.jar)
 
 ### Diagramas
 
@@ -30,7 +30,7 @@ Usuário e Cliente. Após como é observado, temos uma relação de composição
 a classe de agendamento (Schedules) com a cardinalidade um para muitos, sendo
 que um agendamento não pode existir sem um usuário e um cliente.
 
-![Diagrams](/home/matheusnicolau/Documentos/Matheus/TCC/beautyfast/src/main/resources/diagrams/classe-model.jpg)
+![Diagrams](src/main/resources/diagrams/classe-model.jpg)
 
 #### Diagrama Entidade Relacional:
 A segunda diagramação escolhida foi para
@@ -41,7 +41,7 @@ clientes para com agendamentos(schedules) de zero ou muitos agendamentos,
 e o inverso desta condição mostra uma cardinalidade de um e apenas um
 usuário e cliente para cada agendamento.
 
-![Diagrams](/home/matheusnicolau/Documentos/Matheus/TCC/beautyfast/src/main/resources/diagrams/entity-model.drawio.png)
+![Diagrams](src/main/resources/diagrams/entity-model.drawio.png)
 
 #### Diagrama de Sequência:
 Por ultimo o digrama escolhido foi para a
@@ -57,7 +57,7 @@ da aplicação JPA do ambiente spring, e persistida na base de dados MySQL,
 retornando ao cliente da requisição um HTTP status 201 que significa que o
 agendamento foi criado.
 
-![Diagrams](/home/matheusnicolau/Documentos/Matheus/TCC/beautyfast/src/main/resources/diagrams/sequence-model.drawio.png)
+![Diagrams](src/main/resources/diagrams/sequence-model.drawio.png)
 
 
 
