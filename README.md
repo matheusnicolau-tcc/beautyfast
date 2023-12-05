@@ -16,8 +16,42 @@ Estas são as dependências utilizadas até o momento no projeto, para o arquivo
 `spring-boot-starter-validation` - `spring-boot-starter-web` - `spring-boot-devtools` - `mysql-connector-j` - `flyway-mysql` -
 `lombok` - `spring-boot-starter-test` - `modelmapper`.
 
+---
+
 ### Arquivo Jar
-O arquivo do build de artefato do projeto se encontra -> [Aqui](out/artifacts/api_beautyfast_jar/api-beautyfast.jar)
+O arquivo do build de artefato do projeto se encontra: [Aqui](out/artifacts/api_beautyfast_jar/api-beautyfast.jar)
+
+---
+
+### Postman Collection
+O arquivo de import da collection para o postman se encontra: [Aqui](src/main/resources/collection-postman/BeautyFast.postman_collection.json)
+
+
+##### Para o import: 
+- Primeiro é necessários clicar no botão de import na área de collections do postman.
+
+![](src/main/resources/collection-postman/import-postman-1.png)
+
+- Depois importar o arquivo do diretório que foi baixado a collection do postman.
+
+![](src/main/resources/collection-postman/import-postman-2.png)
+
+---
+
+### Banco de Dados
+Por Possuir as dependências do projeto configuradas para o banco **MySQL** é necessário que o usuário da API possua préviamente instalado
+o banco de dados respectivo e um SGDB para para facilitar a usabilidade, as referências de utilização neste projeto foram:
+
+
+**MySql** Download: [https://www.mysql.com/downloads/](https://www.mysql.com/downloads/)
+
+
+**DBeaver-ce** Download: [https://www.mysql.com/downloads/](https://dbeaver.io/download/)
+
+
+*É necessário a execução dos scripts SQL contidos nessa sessão*: [Aqui](src/main/resources/db.migration/V1__create-tables.sql)
+
+---
 
 ### Diagramas
 
